@@ -1,11 +1,13 @@
-html{
+html {
     font-size: 14px;
     font-family: 'Open Sans', sans-serif;
 }
+
 body {
     max-width: 1401px;
 
 }
+
 .navbar {
     background: black;
     padding-left: 10rem;
@@ -61,7 +63,6 @@ header {
     opacity: 0.8;
 }
 
-
 .download-button {
     margin-top: 3.14rem;
     background: #9A9A9A;
@@ -70,8 +71,6 @@ header {
 }
 
 .right-header-side {
-    display: flex;
-    justify-content: flex-end;
     padding: 2.14rem 10rem 0 0;
 }
 
@@ -82,6 +81,7 @@ header {
     max-width: 26.7rem;
     background: #fff;
 }
+
 .sign-up-form-head {
     padding: 1.07rem;
     margin-bottom: 1.79rem;
@@ -90,6 +90,7 @@ header {
     font-weight: bold;
     text-align: center;
 }
+
 .sign-up-form-head span {
     color: orange;
     text-transform: uppercase;
@@ -104,17 +105,20 @@ header {
     border: none;
     cursor: pointer;
 }
+
 .form-control {
     border: none;
     padding: 1.07rem 1.07rem;
     font-size: 1.14rem;
     color: #000;
 }
+
 .form-group {
     margin-bottom: 2.14rem;
     padding-left: 2.14rem;
     padding-right: 2.14rem;
 }
+
 .form-control::placeholder {
     color: #dedede;
 }
@@ -122,7 +126,6 @@ header {
 footer {
     display: flex;
     justify-content: space-between;
-    background-color: lightgray;
 }
 
 .social_media_description {
@@ -144,6 +147,8 @@ footer {
 }
 
 .social_icons_block {
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
     display: flex;
     justify-content: flex-end;
     padding-right: 10rem;
@@ -156,3 +161,100 @@ footer {
     margin-left: 2.9rem;
 }
 
+@media (max-width: 622px) {
+    .right-header-side form {
+        margin-right: auto;
+        height: 25.29rem;
+        max-height: 27.29rem;
+        width: 20rem;
+        max-width: 20rem;
+    }
+
+    .right-header-side {
+        padding: 2.14rem 0 0 0;
+    }
+
+    .left-header-side {
+        padding: 0 1rem;
+        margin-top: 2.14rem;
+    }
+
+    .left-header-side {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 28.57rem;
+    }
+
+    .social_icons_block {
+        flex-wrap: wrap;
+        padding-right: 3rem;
+        padding-left: 0.1rem;
+    }
+
+    body {
+        min-width: 280px;
+    }
+}
+
+@media (max-width: 914px) {
+    header {
+        padding-top: 2.86rem;
+    }
+
+    .navbar {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .social_icons_block {
+        justify-content: center;
+        padding-right: 4rem;
+    }
+
+    .left-header-side-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 1200px) {
+    .social_media_description {
+        text-align: -webkit-center;
+        padding-left: 1rem;
+        padding-bottom: 0.7rem;
+    }
+}
+
+@media (min-width: 623px) and (max-width: 914px) {
+    .right-header-side form {
+        margin-right: auto;
+        height: 25.29rem;
+        max-height: 26.29rem;
+        width: 26.7rem;
+        max-width: 26.7rem;
+    }
+
+    .right-header-side, .left-header-side {
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+
+    .left-header-side {
+        margin-left: auto;
+    }
+}
+
+@media (min-width: 915px) and (max-width: 1200px) {
+    .social_icons_block {
+        justify-content: center;
+        padding-right: 2.9rem;
+    }
+
+    .left-header-side {
+        padding-left: 10rem;
+    }
+
+    .left-header-side {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
