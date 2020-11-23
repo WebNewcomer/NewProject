@@ -19,7 +19,6 @@ body {
 }
 
 .navbar-nav .nav-link {
-    color: white;
     opacity: 0.6901960784313725;
     text-decoration: none;
 }
@@ -42,11 +41,8 @@ header {
 .left-header-side-title {
     margin-top: 1.14rem;
     max-width: 38.6rem;
-    text-transform: uppercase;
     font-family: 'Raleway', sans-serif;
     font-size: 2.57rem;
-    font-weight: normal;
-    color: white;
 }
 
 .line {
@@ -56,17 +52,14 @@ header {
 }
 
 .left-header-side-text {
-    margin: 0;
     max-width: 32.9rem;
     font-size: 1.14rem;
-    color: white;
     opacity: 0.8;
 }
 
 .download-button {
     margin-top: 3.14rem;
     background: #9A9A9A;
-    color: #fff;
     padding: 0.7rem 2.55rem;
 }
 
@@ -79,7 +72,6 @@ header {
     max-height: 26.29rem;
     width: 26.7rem;
     max-width: 26.7rem;
-    background: #fff;
 }
 
 .sign-up-form-head {
@@ -101,8 +93,6 @@ header {
     width: 100%;
     padding: 1.07rem;
     background: orange;
-    color: #fff;
-    border: none;
     cursor: pointer;
 }
 
@@ -110,7 +100,6 @@ header {
     border: none;
     padding: 1.07rem 1.07rem;
     font-size: 1.14rem;
-    color: #000;
 }
 
 .form-group {
@@ -121,11 +110,6 @@ header {
 
 .form-control::placeholder {
     color: #dedede;
-}
-
-footer {
-    display: flex;
-    justify-content: space-between;
 }
 
 .social_media_description {
@@ -141,18 +125,13 @@ footer {
 }
 
 .social_media_text {
-    margin: 0;
     color: #86878B;
     max-width: 25.7rem;
 }
 
 .social_icons_block {
-    padding-bottom: 0.5rem;
-    padding-top: 0.5rem;
-    display: flex;
     justify-content: flex-end;
     padding-right: 10rem;
-    align-items: center;
 }
 
 .fab {
@@ -180,8 +159,6 @@ footer {
     }
 
     .left-header-side {
-        margin-left: auto;
-        margin-right: auto;
         max-width: 28.57rem;
     }
 
@@ -207,7 +184,6 @@ footer {
     }
 
     .social_icons_block {
-        justify-content: center;
         padding-right: 4rem;
     }
 
@@ -222,6 +198,9 @@ footer {
         padding-left: 1rem;
         padding-bottom: 0.7rem;
     }
+    .social_icons_block {
+        justify-content: center;
+    }
 }
 
 @media (min-width: 623px) and (max-width: 914px) {
@@ -233,7 +212,6 @@ footer {
 
 @media (min-width: 915px) and (max-width: 1200px) {
     .social_icons_block {
-        justify-content: center;
         padding-right: 2.9rem;
     }
 }
