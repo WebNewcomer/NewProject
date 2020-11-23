@@ -225,21 +225,9 @@ footer {
 }
 
 @media (min-width: 623px) and (max-width: 914px) {
-    .right-header-side form {
-        margin-right: auto;
-        height: 25.29rem;
-        max-height: 26.29rem;
-        width: 26.7rem;
-        max-width: 26.7rem;
-    }
-
     .right-header-side, .left-header-side {
         padding-right: 1rem;
         padding-left: 1rem;
-    }
-
-    .left-header-side {
-        margin-left: auto;
     }
 }
 
@@ -247,14 +235,5 @@ footer {
     .social_icons_block {
         justify-content: center;
         padding-right: 2.9rem;
-    }
-
-    .left-header-side {
-        padding-left: 10rem;
-    }
-
-    .left-header-side {
-        margin-left: auto;
-        margin-right: auto;
     }
 }
