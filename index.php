@@ -1,52 +1,75 @@
 <?php
+/*Написать цикл который посчитает сумму в dept1 и в dept2. Вывести сумму dept1 + dept2.
+Написать цикл который выводит цифры от 0 до 100 но обрывается на 50
+Написать функцию которая принимает массив $arr = [1,5,6,9,12] в цикле считает сумму и выдает результат числом. Вывести число на экран.
+Написать функцию которая принимает массив и считает сумму его элементов. Написать другую функцию которая использует первую, которой на вход подается массив с подмассивами. (Пример c dept1, dept2)*/
 
-/*Task1
-Prints out the string of the given array's elements */
-function greeting()
+/* Task1 */
+$array = [
+    "dep1" => ["Kolya" => 1000, "Oleg" => 700, "Olya" => 1100],
+    "dep2" => ["Nik" => 900, "Jhon" => 800, "Boss" => 1600],
+];
+
+function sum(array $arr): ?int
 {
-    $name = "Evgen";
-    $a = ["Привет", "Мир!", "Меня", "зовут", $name];
-    return $a[0] . " " . $a[1] . " " . $a[2] . " " . $a[3] . " " . $a[4];
+    $sum = 0;
+    foreach ($arr as $item) {
+        $sum += $item;
+    }
+    return $sum;
 }
 
-echo greeting();
+echo "Sum of dep1 and dep2 is: " . (sum($array["dep1"]) + sum($array["dep2"]));
 
-/*Task2
-Prints out salaries amount for dep1 and dep2*/
-function salaryCalc()
+
+
+/* Task2 */
+function brokenCycle(int $count): void
 {
-    $arr = [
-        "dep1" => ["Kolya" => 1000, "Oleg" => 700, "Olya" => 1100],
-        "dep2" => ["Nik" => 900, "Jhon" => 800, "Boss" => 1600],
-    ];
-
-    $dep1Salary = $arr["dep1"]["Kolya"] + $arr["dep1"]["Oleg"] + $arr["dep1"]["Olya"];
-    $dep2Salary = $arr["dep2"]["Nik"] + $arr["dep2"]["Jhon"] + $arr["dep2"]["Boss"];
-    echo "Dep1 salary: " . $dep1Salary;
-    echo PHP_EOL;
-    echo "Dep2 salary: " . $dep2Salary;
+    for ($i = 0; $i < $count; $i++) {
+        echo $i . " ";
+        if ($i == 50) {
+            break;
+        }
+    }
 }
 
-salaryCalc();
+brokenCycle(100);
 
-/*Task3
-Prints out specified array's slice*/
-$arr = [1, 2, 3, 4, 5, 6];
-var_dump(array_slice($arr, 3));
 
-/*Task4
-Prints out initial array content
-The first and last elements pulled out and the final array's appearance*/
-function lastAndFirst()
+
+/* Task3 */
+function arraySum(array $array): int
 {
-    $arr = [1, 2, 3, 4, 5, 6];
-    echo "The initial array has the following appearance: " . PHP_EOL;
-    var_dump($arr);
-    echo "The first given array's value is: " . array_shift($arr);
-    echo PHP_EOL;
-    echo "The first given array's value is: " . array_pop($arr);
-    echo "Now the same array has the following appearance: " . PHP_EOL;
-    var_dump($arr);
+    $sum = 0;
+    foreach ($array as $item) {
+        $sum += $item;
+    }
+    return $sum;
 }
 
-lastAndFirst();
+echo "Array values sum is: " . arraySum($arr = [1,5,6,9,12]);
+
+
+
+/* Task4 */
+$arr = [
+    "dep1" => ["Kolya" => 1000, "Oleg" => 700, "Olya" => 1100],
+    "dep2" => ["Nik" => 900, "Jhon" => 800, "Boss" => 1600],
+];
+
+function oneArraySum(array $array): int
+{
+    $sum = 0;
+    foreach ($array as $item) {
+        $sum += $item;
+    }
+    return $sum;
+}
+
+function arraysSum(array $array): int
+{
+    return oneArraySum($array["dep1"]) + oneArraySum($array["dep2"]);
+}
+
+echo "Sum of dep1 and dep2 is: " . arraysSum($arr);
