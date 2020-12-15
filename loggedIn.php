@@ -17,7 +17,7 @@
             <h4 class="alert-heading">Welcome <?=$_SESSION['authorization']?>! </h4>
             <p>You are successfully logged in</p>
             <hr>
-            <a href="#">
+            <a href="home.php">
                 <button type="button" class="btn btn-outline-secondary">Home</button>
             </a>
             <a href="logout.php">
