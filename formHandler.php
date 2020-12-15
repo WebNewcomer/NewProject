@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 if (isset($_POST)) {
@@ -26,4 +25,22 @@ if (isset($_SESSION['authorization']) && $_SESSION['authorization'] == "user") {
     include "./index.php";
 }
 //*****************************
+
+//*****************************
+/**
+ * Gets linked array. Processes array's fields
+ *
+ * @param $array
+ */
+$arrayStart = [];
+function someFunc(array &$array)
+{
+    $array['name'] = "User Name";
+    $array['email'] = "User Email";
+}
+
+someFunc($arrayStart);
+var_dump($arrayStart);
+//****************************
+
 
