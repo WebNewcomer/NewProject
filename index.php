@@ -1,27 +1,9 @@
 <?php
-session_start();
 
-if (isset($_POST)) {
-    $result = formHandler($_POST);
-} else {
-    $result = null;
-}
+require_once __DIR__ . "/NewProject/classes/Cat.php";
 
-/* Processes auth data from $_POST */
-function formHandler(array $array)
-{
-    /* Input data clearing */
-    $name = htmlentities($_POST['firstName']);
-    $pass = htmlentities($_POST['password']);
+$rightCat = new Cat(30, "black", "peterbold", "boy", 5);
+var_dump($rightCat->iSPerfectCat());
 
-    if ($name == "user" && $pass == "test") {
-        $_SESSION['authorization'] = "user";
-    }
-    return array_filter($array);
-}
-if (isset($_SESSION['authorization']) && $_SESSION['authorization'] == "user") {
-    include "./loggedIn.php";
-} else {
-    include "./login.php";
-}
-//*****************************
+$notRightCat = new Cat(30, "white", "peterbold", "boy", 5);
+var_dump($notRightCat->iSPerfectCat());
