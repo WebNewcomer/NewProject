@@ -33,7 +33,7 @@ class Cat
      *
      * @return bool
      */
-    private function iSBoy(): bool
+    private function isBoy(): bool
     {
         return $this->sex == "boy";
     }
@@ -43,7 +43,7 @@ class Cat
      *
      * @return bool
      */
-    private function iSGirl(): bool
+    private function isGirl(): bool
     {
         return $this->sex == "girl";
     }
