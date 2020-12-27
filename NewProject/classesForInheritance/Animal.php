@@ -1,5 +1,6 @@
 <?php
 
+namespace NewProject\NewProject\classesForInheritance;
 
 abstract class Animal
 {
@@ -23,11 +24,23 @@ abstract class Animal
         $this->sex = $sex;
     }
 
-    private function go() {}
+    private function go()
+    {
+        echo("I can go");
+    }
 
-    private function run() {}
+    private function run()
+    {
+        echo("I can run");
+    }
 
-    abstract protected function makeSound();
+    private function makeSound()
+    {
+        echo("I can make sound");
+    }
 
-    abstract protected function makeSoundWithTrunk();
+    private function makeSoundWithTrunk()
+    {
+        echo("I can make sound with trunk");
+    }
 }

@@ -1,5 +1,7 @@
 <?php
 
+namespace NewProject\NewProject\classesForComposition;
+
 class Animal
 {
     /**
@@ -24,17 +26,17 @@ class Animal
 
     public function go(): string
     {
-        return "I can go like ";
+        return "I can go";
     }
 
     public function run(): string
     {
-        return "I can run like ";
+        return "I can run";
     }
 
     public function makeSound(): string
     {
-        return "I can make sounds like ";
+        return "I can make sounds";
     }
 
     /**
