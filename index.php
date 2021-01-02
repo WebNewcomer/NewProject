@@ -1,65 +1,89 @@
 <?php
-/*Написать класс Animal(животное) который будет родительским для классов Cat, Dog, Elephant.
-Вывести общие свойства для этих трех классов, поместить в родительский. Все свойства максимально закрывать модификаторами доступа.
-У родительского класса будут методы
-Идти, бежать, издать звук.
-Так как у слона издание звуков сложнее, у него будет еще функция издатьЗвукИзХобота.
-Так как все классы должны быть похожи мы переносим этот метод наверх, родительскому классу.
-Подумать почему этот метод плохой. Написать вариант с использованием композиции(Может быть не один класс).
-Написать вариант с помощью трейтов. Можно так же написать вариант без этого, подумав как организовать систему правильно.*/
+/*По ссылке все круто расписано. Но я хочу написать, что я хочу увидеть в задаче.
 
-require_once __DIR__ . "/NewProject/classesForInheritance/Elephant.php";
-require_once __DIR__ . "/NewProject/classesForInheritance/Dog.php";
-require_once __DIR__ . "/NewProject/classesForInheritance/Cat.php";
+Это два класса платежных систем(Пусть будет Privat, Ukrsib)
 
-$elephant = new Elephant(45, "gray", "boy", 2);
-$elephant->aboutMe();
-echo "<hr>";
+Они должны наследовать абстрактный класс PaymentProvider
+в котором и будет реализован метод pay
+метод pay должен включать в себя 2 функции saveToDB(), changeUserStatus()
 
-$dog = new Dog(3, "black", "boy", 200);
-$dog->aboutMe();
-echo "<hr>";
+В этом классе так же должно быть 2 метода(подумайте какой модификатор доступа должен быть у них).
+Один из методов будет абстрактный(Какой?)
 
-$cat = new Cat(2, "black", "boy", 1);
-$cat->aboutMe();
-echo "<hr>";
+Все 2 метода выводят просто var_dump, ничего конкретно не делают.
+
+Должен быть класс Order со свойством $paid будет 0 или 1.
+Статусы вынести в константы.
+
+Должен быть класс Client и функция payForOrder которая принимает обьект класса User и обьект типа PaymentProvider.
+В ней происходит метод pay, создается новый обьект класса Order и ставится статус paid = true;
+Так же должен быть файл index.php который создает нового пользователя, создает конкретный класс платежной системы и вызывает $client->payForOrder();*/
 
 
-//____________________________________________________________________________________
-use NewProject\NewProject\classesWithTraits\Elephant;
-use NewProject\NewProject\classesWithTraits\Dog;
-use NewProject\NewProject\classesWithTraits\Cat;
+abstract class PaymentProvider
+{
+    public function pay()
+    {
+        $this->saveToDB();
+        $this->changeUserStatus();
+    }
 
-require_once __DIR__ . "/NewProject/classesWithTraits/Elephant.php";
-require_once __DIR__ . "/NewProject/classesWithTraits/Dog.php";
-require_once __DIR__ . "/NewProject/classesWithTraits/Cat.php";
-
-$elephant = new Elephant(45, "gray", "boy", 2);
-$elephant->aboutMe();
-echo "<hr>";
-
-$dog = new Dog(3, "black", "boy", 200);
-$dog->aboutMe();
-echo "<hr>";
-
-$cat = new Cat(2, "black", "boy", 1);
-$cat->aboutMe();
-echo "<hr>";
+    protected abstract function saveToDB();
 
 
-//_____________________________________________________________________________________
-/*require_once __DIR__ . "/NewProject/classesForComposition/Elephant.php";
-require_once __DIR__ . "/NewProject/classesForComposition/Dog.php";
-require_once __DIR__ . "/NewProject/classesForComposition/Cat.php";
+    private function changeUserStatus()
+    {
+        var_dump("saveToDB");
+    }
+}
 
-$elephant = new Elephant(45, "gray", "boy", 2);
-$elephant->aboutMe();
-echo "<hr>";
+class Privat extends PaymentProvider
+{
+    protected function saveToDB()
+    {
+        var_dump("save to DB for Privat");
+    }
+}
 
-$dog = new Dog(3, "black", "boy", 200);
-$dog->aboutMe();
-echo "<hr>";
 
-$cat = new Cat(3, "black", "boy", 1);
-$cat->aboutMe();
-echo "<hr>";*/
+class UkrSib extends PaymentProvider
+{
+    protected function saveToDB()
+    {
+        var_dump("save to DB for UkrSib");
+    }
+
+}
+
+
+class Order
+{
+    const PAID = true;
+    const NOT_PAID = false;
+    private bool $paid;
+
+    public function setPaid(bool $paidStatus)
+    {
+        $this->paid = $paidStatus;
+    }
+}
+
+class User
+{
+
+}
+
+class Client
+{
+    public function payForOrder(User $user, PaymentProvider $provider)
+    {
+        $provider->pay();
+        $order = new Order();
+        $order->setPaid(Order::PAID);
+    }
+}
+
+$user = new User;
+$provider = new Privat();
+$client = new Client();
+$client->payForOrder($user, $provider);
